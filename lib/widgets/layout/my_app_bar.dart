@@ -32,6 +32,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       backgroundColor: bgColor,
       bottom: bottom,
+      shadowColor: Colors.transparent,
       leading: back ? _back() : null,
       title: Container(
         transform: back && centerTitle != true

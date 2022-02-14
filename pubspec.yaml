@@ -43,6 +43,7 @@ dependencies:
   seafarer: ^0.1.1
   http_parser: ^4.0.0
   json_annotation: ^4.4.0
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:
