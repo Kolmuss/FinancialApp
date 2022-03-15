@@ -64,7 +64,11 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
             size: 28,
           ),
       onPressed: () {
-          Routes.router.navigate(Routes.settings);
+        if (onBack != null) {
+          onBack!();
+        } else {
+          Routes.router.pop();
+        }
       },
     );
   }

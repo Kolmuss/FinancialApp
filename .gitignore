@@ -13,6 +13,7 @@
 *.iml
 *.ipr
 *.iws
+*.jks
 .idea/
 
 # The .vscode folder contains launch configuration and tasks you configure in
@@ -31,6 +32,11 @@
 .pub/
 /build/
 
+*/.gradle/
+/gradle/
+gradlew
+gradlew.bat
+
 # Web related
 lib/generated_plugin_registrant.dart
 
@@ -39,8 +45,15 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+https://github.com/Kolmuss/FinancialApp.git
 
 # Android Studio will place build artifacts here
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+google-services.json
+*.g.dart
+GoogleService-Info.plist
+android/.project
+android/app/.project
