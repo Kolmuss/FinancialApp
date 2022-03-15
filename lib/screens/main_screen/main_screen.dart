@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:financial_app/helper/color_helper.dart';
+import 'package:financial_app/routes.dart';
 import 'package:financial_app/widgets/layout/my_app_bar.dart';
 import 'package:financial_app/widgets/progressBar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -42,9 +44,12 @@ class _MainScreenState extends State<MainScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const MyAppBar(
+        appBar: MyAppBar(
           bgColor: Color(0xFFF8777D),
           back: true,
+           onBack: () {
+            Routes.router.navigate(Routes.settings);
+           },
           backIcon: Icon(Icons.settings),
           centerTitle: true,
           title: 'Accounts',
@@ -125,19 +130,52 @@ class _MainScreenState extends State<MainScreen>
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Expanded(child: Column(mainAxisAlignment:MainAxisAlignment.center,children: [
-                            CustomPaint(
-                              foregroundPainter: RadialPainter(
-                                  bgColor: Colors.white.withOpacity(0.1),
-                                  lineColor: getColor(context, 0.4),
-                                  percent: 0.4,
-                                  width: 100),
+                          Expanded(child:
+                              LayoutBuilder(builder: (context, constraints) {
+                            return SizedBox(
+                              height: constraints.minWidth,
                               child: Center(
-                                child: Text('fsd')
+                                child: CircularPercentIndicator(
+                                    radius: constraints.constrainWidth() / 3.5,
+                                    lineWidth: 5.0,
+                                    percent: 0.75,
+                                    center: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text("75",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 40,
+                                            )),
+                                        Text(
+                                          '%',
+                                          style: TextStyle(
+                                              fontSize: 19,
+                                              color: Colors.white
+                                                  .withOpacity(0.5)),
+                                        ),
+                                      ],
+                                    ),
+                                    backgroundColor:
+                                        Colors.white.withOpacity(0.15),
+                                    progressColor: Colors.white,
+                                    rotateLinearGradient: true,
+                                    circularStrokeCap: CircularStrokeCap.round),
                               ),
-                            )
-                          ],)),
-                          Expanded(child: Column(children: [],))
+                            );
+                          })),
+                          Expanded(
+                              child: Column(
+                            children: [
+                              Text('INCOMES', style: TextStyle(
+                                color: Colors.white.withOpacity(0.5),
+                                fontSize: 12
+                              ),)
+                            ],
+                          ))
                         ],
                       ),
                     )
