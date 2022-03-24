@@ -44,12 +44,13 @@ class _MainScreenState extends State<MainScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color(0xFFF8777D),
         appBar: MyAppBar(
           bgColor: Color(0xFFF8777D),
           back: true,
-           onBack: () {
+          onBack: () {
             Routes.router.navigate(Routes.settings);
-           },
+          },
           backIcon: Icon(Icons.settings),
           centerTitle: true,
           title: 'Accounts',
@@ -65,9 +66,14 @@ class _MainScreenState extends State<MainScreen>
             SizedBox(
               height: double.infinity,
               width: 40,
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
+              child: InkWell(
+                onTap: () {
+                  Routes.router.navigate(Routes.addBalance);
+                },
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                ),
               ),
             )
           ],
@@ -77,7 +83,6 @@ class _MainScreenState extends State<MainScreen>
             Container(
               height: 40,
               width: double.infinity,
-              decoration: BoxDecoration(color: Color(0xFFF8777D)),
               child: TabBar(
                 controller: _tabController,
                 indicatorColor: Colors.white,
@@ -113,12 +118,16 @@ class _MainScreenState extends State<MainScreen>
                                 fontSize: 12,
                                 color: Colors.white.withOpacity(0.5)),
                           ),
-                          const SizedBox(height: 4,),
+                          const SizedBox(
+                            height: 4,
+                          ),
                           Text(
                             '\$${balance}',
                             style: TextStyle(fontSize: 40, color: Colors.white),
                           ),
-                          const SizedBox(height: 4,),
+                          const SizedBox(
+                            height: 4,
+                          ),
                           Text(
                             '+4.28%',
                             style: TextStyle(fontSize: 16, color: Colors.white),
@@ -170,10 +179,12 @@ class _MainScreenState extends State<MainScreen>
                           Expanded(
                               child: Column(
                             children: [
-                              Text('INCOMES', style: TextStyle(
-                                color: Colors.white.withOpacity(0.5),
-                                fontSize: 12
-                              ),)
+                              Text(
+                                'INCOMES',
+                                style: TextStyle(
+                                    color: Colors.white.withOpacity(0.5),
+                                    fontSize: 12),
+                              )
                             ],
                           ))
                         ],
@@ -186,7 +197,221 @@ class _MainScreenState extends State<MainScreen>
                   child: TabBarView(
                     controller: _tabController,
                     children: [
-                      Icon(Icons.directions_car),
+                      ListView(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 4)
+                                .copyWith(top: 12),
+                            child: Container(
+                              padding: EdgeInsets.all(12),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Cash',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color:
+                                              Colors.black.withOpacity(0.6))),
+                                  SizedBox(
+                                    height: 4,
+                                  ),
+                                  Text('\$23 092.20',
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        color: Color(0xFF65BCBF),
+                                      ))
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 4),
+                            child: Container(
+                              padding: EdgeInsets.all(12),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Credit card',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color:
+                                              Colors.black.withOpacity(0.6))),
+                                  SizedBox(
+                                    height: 4,
+                                  ),
+                                  Text('-\$532',
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        color: Color(0xFFF8777D),
+                                      ))
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 4),
+                            child: Container(
+                              padding: EdgeInsets.all(12),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Wife\'s credit card',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color:
+                                              Colors.black.withOpacity(0.6))),
+                                  SizedBox(
+                                    height: 4,
+                                  ),
+                                  Text('\$2 139',
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        color: Color(0xFF65BCBF),
+                                      ))
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 4),
+                            child: Container(
+                              padding: EdgeInsets.all(12),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Bank deposit',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color:
+                                              Colors.black.withOpacity(0.6))),
+                                  SizedBox(
+                                    height: 4,
+                                  ),
+                                  Text('\$200 000',
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        color: Color(0xFF65BCBF),
+                                      ))
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 4),
+                            child: Container(
+                              padding: EdgeInsets.all(12),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Car loan',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color:
+                                              Colors.black.withOpacity(0.6))),
+                                  SizedBox(
+                                    height: 4,
+                                  ),
+                                  Text('-\$67 231',
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        color: Color(0xFFF8777D),
+                                      ))
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 4),
+                            child: Container(
+                              padding: EdgeInsets.all(12),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Home loan',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color:
+                                              Colors.black.withOpacity(0.6))),
+                                  SizedBox(
+                                    height: 4,
+                                  ),
+                                  Text('-\$329 027',
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        color: Color(0xFFF8777D),
+                                      ))
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 4),
+                            child: Container(
+                              padding: EdgeInsets.all(12),
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Home loan',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color:
+                                          Colors.black.withOpacity(0.6))),
+                                  SizedBox(
+                                    height: 4,
+                                  ),
+                                  Text('-\$329 027',
+                                      style: TextStyle(
+                                        fontSize: 28,
+                                        color: Color(0xFFF8777D),
+                                      ))
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                       Icon(Icons.directions_transit),
                       Icon(Icons.directions_bike),
                       Icon(Icons.directions_bike),
